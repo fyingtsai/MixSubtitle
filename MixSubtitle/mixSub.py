@@ -1,11 +1,10 @@
-import sys
+# Author: Kelly Tsai
+
+from datetime import datetime
+import optparse
+import sys, getopt
 reload(sys)
 sys.setdefaultencoding('utf-8')
-from datetime import datetime
-
-chsFile = '/Users/vpon/Desktop/chs.srt'
-engFile = '/Users/vpon/Desktop/Eng.srt'
-outFile = open('/Users/vpon/Desktop/output.srt','w');
 
 chineseList = []
 engList = []
@@ -98,7 +97,6 @@ def getMixItemList(chs,eng):
     return MixItemList
 
 def writeMixItemListToFile(mixItem,filename):
-
     for m in mixItem:
         filename.write(m.id + '\n')
         filename.write(m.start + ' --> ' + m.end + '\n')
@@ -108,9 +106,18 @@ def writeMixItemListToFile(mixItem,filename):
             filename.write(seng)
         filename.write('\n')
 
-chineseList = getChineseItemList(chsFile)
-engList = getEngItemList(engFile)
-mixList = getMixItemList(chineseList,engList)
-writeMixItemListToFile(mixList,outFile)
+def main():
+    try:
+        outFile = open(sys.argv[3],'w');
 
+        chineseList = getChineseItemList(sys.argv[1])
+        engList = getEngItemList(sys.argv[2])
+        mixList = getMixItemList(chineseList,engList)
+        writeMixItemListToFile(mixList,outFile)
+    except:
+        print 'command-line argumets:'
+        print 'run file.py as follows: file.py ChineseVersionDir EnglishVersionDir OutputFileDir'
+        print 'ex: python file.py $Dir/chs.srt $Dir/eng.srt $Dir/output.srt'
 
+if __name__ == "__main__":
+   main()
