@@ -7,7 +7,7 @@
 
 ##使用方式
 可用shell script，參數傳遞請依照:
-./File.py 中文檔路徑 英文檔路徑 輸出檔路徑
+./mixSub.py 中文檔路徑 英文檔路徑 輸出檔路徑
 
 ##執行結果範例
 ![chs](https://cloud.githubusercontent.com/assets/10824338/6057633/e4725560-ad5a-11e4-8fd3-207c14fc9de2.png)
