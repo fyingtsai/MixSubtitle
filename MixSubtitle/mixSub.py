@@ -86,6 +86,7 @@ def getMixItemList(chs,eng):
     for a in chs:
         for b in eng:
             if a.time == b.time:
+            #if a.id == b.id:
                 global s 
                 s = Format_item()
                 s.id = a.id
